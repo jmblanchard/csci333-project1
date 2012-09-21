@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../src/AQueue/AQueue.h"
+#include "../src/LQueue/LQueue.h"
 
 TEST(AQueueTest, Enqueue) {
     AQueue *a = new AQueue(5);
