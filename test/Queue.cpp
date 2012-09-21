@@ -24,3 +24,29 @@ TEST(AQueueTest, Dequeue) {
         EXPECT_EQ(24-i, a->size());
     }
 }
+
+TEST(AQueueTest, Size) {
+    AQueue *a = new AQueue();
+    EXPECT_EQ(0, a->size());
+
+    for (int i = 0; i < 10; ++i) {
+        a->enqueue(i);
+        EXPECT_EQ(i+1, a->size());
+    }
+
+    for (int i = 10; i > 0; --i) {
+        a->dequeue();
+        EXPECT_EQ(i-1, a->size());
+    }
+}
+
+TEST(AQueueTest, IsEmpty) {
+    AQueue *a = new AQueue();
+    EXPECT_EQ(true, a->isEmpty());
+
+    a->enqueue(1);
+    EXPECT_EQ(false, a->isEmpty());
+
+    a->dequeue();
+    EXPECT_EQ(true, a->isEmpty());
+}
