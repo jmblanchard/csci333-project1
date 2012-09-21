@@ -3,7 +3,7 @@
 
 AQueue::AQueue(int initial_capacity) {
     capacity_ = initial_capacity;
-    queue_ = new int[capacity];
+    queue_ = new int[capacity_];
     size_ = 0;
     front_ = 0;
     back_ = 0;
