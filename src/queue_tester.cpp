@@ -8,5 +8,9 @@ int main() {
         queue.enqueue(i);
     }
 
+    for (int i = 0; i < 20; ++i) {
+        std::cout << queue.dequeue() << std::endl;
+    }
+
     return 0;
 }
