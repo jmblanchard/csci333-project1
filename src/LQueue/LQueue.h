@@ -14,7 +14,7 @@ class LQueue {
     bool isEmpty();
 
   private:
-    list<int> *queue_;
+    std::list<int> *queue_;
 };
 
 #endif

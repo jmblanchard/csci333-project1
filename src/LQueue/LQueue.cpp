@@ -2,7 +2,7 @@
 #include <assert.h>
 
 LQueue::LQueue() {
-    queue_ = new list<int>();
+    queue_ = new std::list<int>();
 }
 
 LQueue::~LQueue() {
@@ -16,7 +16,10 @@ void LQueue::enqueue(int item) {
 
 int LQueue::dequeue() {
     assert(!isEmpty());
-    return queue_->pop_front();
+    int front = queue_->front();
+    queue_->pop_front();
+
+    return front;
 }
 
 int LQueue::size() {
