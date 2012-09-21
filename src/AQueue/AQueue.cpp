@@ -42,13 +42,27 @@ void AQueue::enqueue(int item) {
     ++size_;
 }
 
-// TODO: implement
 int AQueue::dequeue() {
     assert(size_ > 0);
 
     int item = queue_[front_ % capacity_];
     ++front_;
     --size_;
+
+    // if size is 1/4 capacity, half capacity
+    if (size_ <= (capacity_ / 4) && size_ != 0) {
+        int old_capacity = capacity_;
+        capacity_ /= 2;
+        int *new_queue = new int[capacity_];
+
+        for (int i = 0; i < size_; ++i) {
+            new_queue[i] = queue_[(front_+i) % old_capacity];
+        }
+        delete[] queue_; // replace with new queue
+        queue_ = new_queue;
+        front_ = 0; // reset front and back locations
+        back_ = size_;
+    }
 
     return item;
 }
