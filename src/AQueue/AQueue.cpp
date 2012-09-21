@@ -26,7 +26,7 @@ void AQueue::enqueue(int item) {
 
         // copy queue into new_queue
         for (int i = 0; i != size_; ++i) {
-            new_queue[0] = queue_[(front_+i) % size_];
+            new_queue[i] = queue_[(front_+i) % size_];
         }
 
         delete[] queue_; // replace with new queue
@@ -44,7 +44,13 @@ void AQueue::enqueue(int item) {
 
 // TODO: implement
 int AQueue::dequeue() {
-    return 0;
+    assert(size_ > 0);
+
+    int item = queue_[front_ % capacity_];
+    ++front_;
+    --size_;
+
+    return item;
 }
 
 int AQueue::size() {
