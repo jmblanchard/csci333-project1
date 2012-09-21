@@ -3,7 +3,18 @@
 
 TEST(AQueueTest, Enqueue) {
     AQueue *a = new AQueue(5);
-    a->enqueue(1);
+    for (int i = 0; i < 25; ++i) {
+        a->enqueue(i);
+        EXPECT_EQ(i+1, a->size());
+    }
 
     delete a;
+}
+
+TEST(AQueueTest, Dequeue) {
+    AQueue *a = new AQueue(5);
+    int i = 0;
+
+    for (i = 0; i < 25; ++i) {
+    }
 }
