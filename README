@@ -1,0 +1,6 @@
+Project 1 for CSCI 333 Data Structures class.
+Implements 3 versions of integer queues: linked list, STL vector, and a raw
+C++ array.
+
+Each implementation will allow for dequeuing, enqueuing, returning the
+size and returning if the structure is empty.
