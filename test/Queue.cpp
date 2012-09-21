@@ -21,6 +21,6 @@ TEST(AQueueTest, Dequeue) {
 
     for (i = 0; i < 25; ++i) {
         EXPECT_EQ(i, a->dequeue());
-        EXPECT_EQ(25-i, a->size());
+        EXPECT_EQ(24-i, a->size());
     }
 }
