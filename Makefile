@@ -8,10 +8,10 @@ CPPFLAGS = -Wall -Wextra -Werror -pedantic
 
 all: $(BUILD)/main $(TEST)/queue_test
 
-$(BUILD)/main: $(SRC)/AQueue/AQueue.cpp $(SRC)/AQueue/AQueue.o
+$(BUILD)/main: $(SRC)/AQueue/AQueue.cpp $(SRC)/AQueue/AQueue.o $(SRC)/LQueue/LQueue.cpp $(SRC)/LQueue/LQueue.o
 	cd $(SRC); $(MAKE) all
 
-$(TEST)/queue_test: $(TEST)/Queue.cpp $(SRC)/AQueue/AQueue.o
+$(TEST)/queue_test: $(TEST)/Queue.cpp $(SRC)/AQueue/AQueue.o $(SRC)/LQueue/LQueue.o
 	cd $(TEST); $(MAKE) queue_test
 
 clean:

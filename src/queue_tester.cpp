@@ -1,16 +1,22 @@
 #include "AQueue/AQueue.h"
+#include "LQueue/LQueue.h"
 #include <iostream>
 
 int main() {
-    AQueue queue(5);
+    AQueue aqueue(5);
+    LQueue *lqueue = new LQueue();
 
     for (int i = 0; i < 20; ++i) {
-        queue.enqueue(i);
+        aqueue.enqueue(i);
+        lqueue->enqueue(i);
     }
 
     for (int i = 0; i < 20; ++i) {
-        std::cout << queue.dequeue() << std::endl;
+        std::cout << aqueue.dequeue() << std::endl;
+        std::cout << lqueue->dequeue() << std::endl;
     }
+
+    delete lqueue;
 
     return 0;
 }
