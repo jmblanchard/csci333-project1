@@ -1,5 +1,6 @@
 #include "LLQueue.h"
 #include <assert.h>
+#include <iostream>
 
 LLQueue::LLQueue() {
     front_ = 0;
@@ -23,13 +24,14 @@ void LLQueue::enqueue(int value) {
         back_ = back_->getNext();
     }
 
-    size_++;
+    ++size_;
 }
 
 int LLQueue::dequeue() {
     assert(!isEmpty());
     int value = front_->getValue();
-    Node *temp = front_;
+    Node *temp;
+    temp = front_;
     front_ = front_->getNext();
     delete temp;
     

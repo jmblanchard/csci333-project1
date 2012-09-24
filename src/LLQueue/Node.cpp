@@ -6,12 +6,11 @@ Node::Node(int value) {
 }
 
 Node::~Node() {
-    delete next_;
     next_ = 0;
-    value = 0;
+    value_ = 0;
 }
 
-Node Node::*getNext() {
+Node *Node::getNext() {
     return next_;
 }
 
