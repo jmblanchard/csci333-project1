@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "../src/AQueue/AQueue.h"
 #include "../src/LQueue/LQueue.h"
+#include "../src/LLQueue/LLQueue.h"
 
 TEST(AQueueTest, Enqueue) {
     AQueue *a = new AQueue(5);
@@ -93,6 +94,56 @@ TEST(LQueueTest, Size) {
 
 TEST(LQueueTest, IsEmpty) {
     LQueue *l = new LQueue();
+    EXPECT_EQ(true, l->isEmpty());
+
+    l->enqueue(1);
+    EXPECT_EQ(false, l->isEmpty());
+
+    l->dequeue();
+    EXPECT_EQ(true, l->isEmpty());
+}
+
+TEST(LLQueueTest, Enqueue) {
+    LLQueue *l = new LLQueue();
+    for (int i = 0; i < 25; ++i) {
+        l->enqueue(i);
+        EXPECT_EQ(i+1, l->size());
+    }
+
+    delete l;
+}
+
+TEST(LLQueueTest, Dequeue) {
+    LLQueue *l = new LLQueue();
+    int i = 0;
+
+    for (i = 0; i < 25; ++i) {
+        l->enqueue(i);
+    }
+
+    for (i = 0; i < 25; ++i) {
+        EXPECT_EQ(i, l->dequeue());
+        EXPECT_EQ(24-i, l->size());
+    }
+}
+
+TEST(LLQueueTest, Size) {
+    LLQueue *l = new LLQueue();
+    EXPECT_EQ(0, l->size());
+
+    for (int i = 0; i < 10; ++i) {
+        l->enqueue(i);
+        EXPECT_EQ(i+1, l->size());
+    }
+
+    for (int i = 10; i > 0; --i) {
+        l->dequeue();
+        EXPECT_EQ(i-1, l->size());
+    }
+}
+
+TEST(LLQueueTest, IsEmpty) {
+    LLQueue *l = new LLQueue();
     EXPECT_EQ(true, l->isEmpty());
 
     l->enqueue(1);
