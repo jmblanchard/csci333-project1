@@ -4,7 +4,7 @@
 #include <iostream>
 #include <time.h>
 
-#define NUM_ITER 20000
+#define NUM_ITER 10000000
 
 int main() {
     AQueue aqueue(5);
